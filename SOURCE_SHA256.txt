@@ -1,1 +1,1 @@
-98dd9c56a4e076919b593314d7497bd5e8dd689373308ddb40ad4c65d9322528  intelligent-contract/contracts/migration_coverage.py
+12ad408a4bfbf0d56780d7ee1567d66460b99a6b7a091c8d071b57c290155171  intelligent-contract/contracts/migration_coverage.py
