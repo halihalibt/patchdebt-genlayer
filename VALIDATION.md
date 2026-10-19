@@ -13,3 +13,7 @@
 | Desktop/mobile visual, console, public asset checks | PENDING | Supported browser automation capability unavailable. No browser was installed or substituted to invent visual QA. |
 
 No fixture, mock receipt, offline hash or local SDK result establishes real chain consensus. `deployment.json` remains PENDING_DEPLOYMENT and locks live signing. The live adapter can be activated only after source identity and actual deployment/assessment evidence are independently verified. See RELEASE_STATUS.md for observed GitHub checks.
+
+## Current reconciliation
+
+Historical no-deployment / Pages-setting-blocked entries above are superseded: user reports one deployment plus two results (evidence/STUDIO_REPORTED_EVIDENCE.json), and Pages run 39292310817 succeeded. Current manifest is DEPLOYED_PENDING_SOURCE_VERIFICATION. Independent source/readback/receipt and website-wallet acceptance remain PENDING. Prior full-WASM limitations still apply.

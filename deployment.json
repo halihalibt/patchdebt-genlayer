@@ -1,10 +1,50 @@
 {
-  "status": "PENDING_DEPLOYMENT",
-  "address": null,
+  "status": "DEPLOYED_PENDING_SOURCE_VERIFICATION",
+  "address": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
   "chain_id": 61999,
   "rpc": "https://studio.genlayer.com/api",
-  "deployment_tx": null,
-  "assessment_tx": null,
+  "deployment_tx": "0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387",
+  "assessment_tx": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
   "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
-  "verification": "No onchain deployment or full GenVM execution has been verified."
+  "verification": "Studio deployment and two record outcomes reported by user. Source identity, independent record readbacks, receipts/consensus and website-wallet E2E remain unverified.",
+  "assessment_txs": {
+    "patchdebt-public-001": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+    "patchdebt-gap-001": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58"
+  },
+  "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+  "record_count": 2,
+  "assessments": [
+    {
+      "request_id": "patchdebt-public-001",
+      "transaction": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+      "reported_state": "COVERED",
+      "reported_item_statuses": [
+        "COVERED",
+        "COVERED"
+      ],
+      "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7"
+    },
+    {
+      "request_id": "patchdebt-gap-001",
+      "transaction": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+      "reported_state": "DEBT",
+      "reported_item_statuses": [
+        "COVERED",
+        "MISSING"
+      ],
+      "input_sha256": "2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82"
+    }
+  ],
+  "evidence_origin": "USER_PROVIDED_STUDIO_RESULTS",
+  "source_verification": {
+    "status": "PENDING",
+    "expected_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
+    "actual_sha256": null
+  },
+  "record_verification": {
+    "status": "PENDING"
+  },
+  "wallet_e2e": {
+    "status": "PENDING"
+  }
 }

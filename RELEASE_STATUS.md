@@ -1,7 +1,5 @@
-# Observed release checkpoint
+# Current release status
 
-See [FINAL_READINESS_REPORT.md](FINAL_READINESS_REPORT.md) for full VERIFIED/PENDING/BLOCKED findings.
+Studio deployment and 2 outcomes are recorded as USER_PROVIDED_STUDIO_RESULTS. Status is DEPLOYED_PENDING_SOURCE_VERIFICATION. See DEPLOYMENT_STATUS.md and evidence/STUDIO_REPORTED_EVIDENCE.md.
 
-A source CI 39286212477 succeeded. B CI 39286353924 built and tested successfully, then failed specifically at Configure Pages (Not Found). The previous queued runs settled; repeated triggering is not a remedy for the repository Pages setting. Closure-document commits do not modify the tested source and are excluded from code workflow triggers.
-
-Existing PatchDebt preview publication succeeded and its access setting is public. Independent cloud HTTP requests returned 403, so actual public-resource and browser acceptance remain pending. Neither Portal submission is ready: deployment, real GenVM/consensus and website wallet E2E are still unverified. No blockchain transactions were sent.
+Previous Pages publication run 39292310817 succeeded; the old Pages-setting blocker no longer applies. The new evidence reconciliation requires a fresh successful publication and actual website acceptance. Source verification, independent readbacks, receipts and wallet E2E remain PENDING. No duplicate transaction or Portal submission is authorized by this update.

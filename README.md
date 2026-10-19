@@ -2,13 +2,13 @@
 
 PatchDebt reviews whether a supplied migration guide provides actionable instructions for each declared software change. It makes documentation debt visible with exact quotations, explanations, version-bound input hashes and independently validated GenLayer records. It does not prove software compatibility, source authenticity or completeness of the supplied change list.
 
-**Release 0.3 candidate — NOT submission-ready.** No deployed address or real consensus result exists. A source-bound SDK adapter is implemented and tested with mocks, but live writes remain locked until deployment acceptance is recorded. [Acceptance status](VALIDATION.md) · [Manual Studio package](intelligent-contract/MANUAL_STUDIO_EXECUTION.md) · [Projects draft](SUBMISSION_PROJECTS.md).
+**Release 0.3 candidate — NOT submission-ready.** A Studio deployment and two outcomes are reported by the user and recorded in deployment.json; receipt/consensus verification remains separate. A source-bound SDK adapter is implemented and tested with mocks, but live writes remain locked until deployment acceptance is recorded. [Acceptance status](VALIDATION.md) · [Manual Studio package](intelligent-contract/MANUAL_STUDIO_EXECUTION.md) · [Projects draft](SUBMISSION_PROJECTS.md).
 
 ## Try the interface
 
 The existing cobalt/ultramarine and moonlight-gold CSS starfield is retained. Three authored examples illustrate COVERED, MISSING and CONFLICT. They are labelled offline and never run inference. Editing inputs clears results. Export preserves evidence origin and computes a Python-compatible canonical SHA256, including Unicode.
 
-The Chain Desk loads a short public Pydantic migration-table input (not a verdict), verifies deployed source SHA256 before binding, reads finalized records without a wallet, and supports EIP-1193 wallets. A deployment manifest must record verified acceptance before signing is enabled. It stores publicly submitted text onchain; keys remain in the wallet.
+The Chain Desk loads a short public Pydantic migration-table input (not a verdict), verifies deployed source SHA256 before binding, reads finalized records without a wallet, and supports EIP-1193 wallets. The manifest is DEPLOYED_PENDING_SOURCE_VERIFICATION; deployed-source and record acceptance must pass before signing is enabled. It stores publicly submitted text onchain; keys remain in the wallet.
 
 A pending submission is saved before signing and survives refresh. Recheck only reads. Ambiguous submission outcomes block retries until the original ID is recovered. Completion requires finality, successful execution, majority agreement, sender/recipient/method/argument binding and the exact saved record. A merely ACCEPTED transaction is not complete. Finalized failure clears the pending lock without showing success. Reads have a 20-second timeout and no automatic repeated submission.
 
@@ -27,7 +27,7 @@ Serve `dist/` using a static host. `index.html` is the source template; `app.js`
 
 ## Publication
 
-The workflow tests and builds B, uploads its Pages artifact, then deploys. Pages must first be enabled with Source = GitHub Actions at the repository's Settings → Pages. The currently observed site URL returned HTTP 404; no public publication success is claimed. The expected URL, **not yet verified live**, is https://halihalibt.github.io/patchdebt-genlayer/ . Failed historical Configure Pages logs returned Not Found; ordinary GITHUB_TOKEN cannot enable Pages without the required external administration permission.
+The workflow tests and builds B, uploads its Pages artifact, then deploys. Pages must first be enabled with Source = GitHub Actions at the repository's Settings → Pages. Pages run 39292310817 successfully published https://halihalibt.github.io/patchdebt-genlayer/ . The historical Configure Pages Not Found blocker is resolved. The new evidence release requires fresh CI/public resource/browser checks.
 
 This repository is the sole GitHub product source. The existing PatchDebt hosting slot now mirrors tested B commit 0d9ae805743c1c5251959626c1030ebe6b2d93c0 at https://patchdebt.zsf197176.chatgpt.site . Native publication succeeded and access is public; independent HTTP resource checks from this environment returned 403, so public/browser acceptance remains pending. This fallback does not resolve the separate GitHub Pages setting or chain acceptance gates.
 

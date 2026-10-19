@@ -1,0 +1,37 @@
+{
+  "evidence_origin": "USER_PROVIDED_STUDIO_RESULTS",
+  "independently_verified_receipts": false,
+  "consensus_votes": null,
+  "network_reported": "Stable GenLayer Studionet",
+  "chain_id_reported": 61999,
+  "contract_address_reported": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+  "deployment_transaction_reported": "0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387",
+  "owner_reported": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+  "canonical_source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
+  "reported_record_count": 2,
+  "assessments": [
+    {
+      "request_id": "patchdebt-public-001",
+      "transaction": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+      "reported_state": "COVERED",
+      "reported_item_statuses": [
+        "COVERED",
+        "COVERED"
+      ],
+      "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7"
+    },
+    {
+      "request_id": "patchdebt-gap-001",
+      "transaction": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+      "reported_state": "DEBT",
+      "reported_item_statuses": [
+        "COVERED",
+        "MISSING"
+      ],
+      "input_sha256": "2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82"
+    }
+  ],
+  "deployed_source_sha256_verified": false,
+  "independent_record_readbacks": null,
+  "note": "Reported transaction order preserved: public=b9d0..., gap=2e7a.... No receipt, finality, execution or vote export is supplied. Do not redeploy or repeat these requests."
+}
