@@ -32,10 +32,8 @@ PatchDebt turns software migration obligations into an evidence ledger. Develope
 
 Constructor has no arguments. `assess(request_id, payload)` accepts the JSON input documented in README; `get_record(owner, request_id)` and `get_count(owner)` are public views. Existing records can be queried without a wallet. The website source check precedes reads; signing additionally requires an active wallet, accepted manifest and correct network.
 
-## Remaining wallet step
+## Product-wallet evidence update
 
-In a browser with your Studionet wallet, open https://halihalibt.github.io/patchdebt-genlayer/ , Verify Source, Connect Wallet on chain 61999, Load Public Doc Input, enter a fresh request ID `patchdebt-web-e2e-001` (query first; if already used choose a new ID), and approve exactly one assessment. Recheck until finalized, export its dossier and return the transaction hash plus dossier. If submission is uncertain, recover and attach the original transaction ID; never resubmit. No private key or seed phrase is needed. This product-wallet transaction has NOT yet occurred.
+VERIFIED: user completed one assessment through the product; actual public website independently verified and exported a finalized transaction-bound dossier. No further signature is needed. Transaction: https://explorer-studio.genlayer.com/tx/0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82 . Final evidence: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/WEBSITE_WALLET_DOSSIER.json . This supplements, rather than replaces, the distinct original A/B evidence fields above.
 
-Product-wallet E2E and mobile render acceptance remain outstanding. Do not claim full local WASM execution or already completed Portal submission.
-
-Publication (VERIFIED): https://github.com/halihalibt/patchdebt-genlayer/actions/runs/39300248515 ; public release identity 1a84985e735d18cc14f876431ed9deebfd1fc444.
+Full local WASM execution and mobile render acceptance remain unperformed. Actual Portal fields have not been inspected; do not invent required field rules. See FINAL_READINESS_REPORT.md for the exact remaining limits. No Portal submission has occurred.

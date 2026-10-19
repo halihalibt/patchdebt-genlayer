@@ -1,41 +1,40 @@
-# Product acceptance
+# Final acceptance — wallet transaction and export verified
 
-Canonical SHA256: `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3`. Contract: `0x724AcFe201463a016f59aC41516D99ab789a5c34`. Stable Studionet, configured chain ID 61999. No redeployment, duplicate assessment or Portal submission occurred.
+Contract: `0x724AcFe201463a016f59aC41516D99ab789a5c34`. Stable Studionet / configured chain ID 61999. Canonical SHA256: `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3`. Full source and tests remain byte-identical across both public repositories; no contract business logic changed.
 
-| Acceptance gate | State | Evidence / limitation |
+| Gate | State | Actual evidence |
 |---|---|---|
-| A/B full contract and tests byte equality | VERIFIED | Independent local bytes comparison and SHA256; 8916 source bytes |
-| CPython harness | VERIFIED | 24 tests; mocks, not GenVM |
-| Official SDK Direct Mode | VERIFIED | 10 tests in prior runtime audit; native Python, not full WASM |
-| Full local WASM GenVM | PENDING | Not executed; no such claim |
-| Deployed source identity | VERIFIED | Website Verify Source and Explorer deployment code bytes match canonical hash |
-| Existing deployment and 2 assess transactions | VERIFIED | Official Explorer DOM: FINALIZED / SUCCESS / Return / Normal / Accepted |
-| Both finalized website get_record reads | VERIFIED | Actual public website exports in B evidence/; exact IDs, hashes and ordered findings |
-| get_count(owner)=2 | PENDING | Original user report preserved; not independently queried |
-| Production frontend build | VERIFIED | 19 frontend tests passed; not evidence of wallet E2E |
-| Public Pages release | VERIFIED | Run 39300248515 succeeded for 1a84985e735d18cc14f876431ed9deebfd1fc444; published release.json independently matches that commit/run |
-| Missing-record live handling | VERIFIED | Actual absent request returns no finalized record; query clears prior ledger and metadata; automated and final live browser checks recorded |
-| Live source-mismatch / RPC outage injection | PENDING | Unit rejection tests pass; original actual RPC failure displayed an error, never success; no fabricated live fault test |
-| Desktop controls / resource loading | VERIFIED | Actual Verify Source, both record queries, exports and absent query; six public resources HTTP 200 |
-| Mobile layout | PENDING | Responsive CSS retained; no mobile viewport rendering acceptance performed |
-| Wallet availability | BLOCKED | Actual CONNECT WALLET: Install an EIP-1193 browser wallet |
-| New website-wallet assessment / pending reload / tx-bound dossier | BLOCKED | Requires wallet in user's browser; no new transaction was sent |
+| Source identity | VERIFIED | Website Verify Source and independent 8916-byte Explorer source comparison |
+| Local CPython harness | VERIFIED | 24 tests; mocked host, not GenVM |
+| Official SDK Direct Mode | VERIFIED | Prior 10 tests, native Python; linter passed with 3 advisory W004 warnings |
+| Full local WASM GenVM | PENDING | Not performed and not claimed |
+| Frontend tests/build | VERIFIED | 22 tests and production build passed |
+| Original deployment + two Studio assessments | VERIFIED | Explorer FINALIZED/SUCCESS/Normal/Accepted; original user reports separately preserved |
+| Original two finalized website records | VERIFIED | Exact request IDs, input hashes and COVERED/COVERED vs COVERED/MISSING |
+| User product-wallet transaction | VERIFIED | User signed one real transaction; independently observed in Explorer |
+| Product transaction-bound finalized recovery | VERIFIED | Actual published product verified sender/destination/method/arguments/leader execution/vote majority and exact saved record |
+| Real export control / dossier | VERIFIED | Actual website download succeeded; origin FINALIZED TRANSACTION + RECORD; raw receipt and finalized record included |
+| Read-only recovery without another signature | VERIFIED | Agent browser recovered existing transaction with no wallet and no write call |
+| Pending persistence / duplicate prevention | VERIFIED locally | Automated tests; live reload during this already-finalized transaction was not practical, not claimed |
+| Mobile rendering | PENDING | Responsive CSS retained; no mobile viewport acceptance performed |
+| Live source mismatch / network outage injection | PENDING | Unit rejection coverage; prior actual RPC error failed closed, not a synthetic live outage test |
+| Original owner get_count=2 | PENDING independent read | Original user report refers only to original owner, not the product-wallet owner |
 
-Explorer observations are independent UI observations, not raw JSON-RPC receipt/vote exports. Each assessment displayed 3 agree and 2 idle votes. Existing website dossiers originate from finalized contract reads and do not falsely claim to contain a transaction receipt. Original Studio reports remain separately labelled USER_PROVIDED_STUDIO_RESULTS.
+## Product-wallet evidence
 
-The current node API requires `status: "finalized"` for gen_call. SDK 1.1.8 emitted only the legacy transaction_hash_variant; real website reads returned Contract not found. The adapter now sends the documented status explicitly using SDK calldata encoding/decoding; both real reads subsequently passed. Official reference: https://docs.genlayer.com/api-references/genlayer-node/gen/gen_call . Checksum addresses are retained. A real absent query exposed a stale visible ledger; the query now clears prior results before reading. Contract business logic and visual design are unchanged.
+Transaction: https://explorer-studio.genlayer.com/tx/0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82
 
-Pending recovery, sender/destination/method/arguments binding, failed execution and duplicate blocking have automated coverage, not live wallet proof. Do not infer product-wallet success from prior Studio transactions. LLM semantic judgment is probabilistic and does not prove compatibility, source authenticity or completeness of declared changes.
+Owner: `0x49ce61764cca0c15a79e2d98baa535fc7547eb3a`. Request: `patchdebt-web-e2e-001`. Aggregate: COVERED. Ordered items: COVERED / COVERED. Input SHA256: `5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7`.
 
-## Existing record checks
+Explorer independently displayed FINALIZED / SUCCESS / Return / Normal / Accepted; visible votes 3 agree, 2 idle. Actual public-product readback/export independently confirmed the exact record and transaction binding. User supplied the signature; the agent sent no new transaction, redeployed nothing, and did not submit to Portal.
 
-| Request | State | Ordered findings | Input SHA256 |
-|---|---|---|---|
-| patchdebt-public-001 | COVERED | COVERED, COVERED | 5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7 |
-| patchdebt-gap-001 | DEBT | COVERED, MISSING | 2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82 |
+- Product dossier: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/WEBSITE_WALLET_DOSSIER.json
+- Actual export screenshot: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/website-wallet-export.jpg
+- Transaction observations: evidence/WEBSITE_WALLET_TRANSACTION.json
+- Fix CI/publication: https://github.com/halihalibt/patchdebt-genlayer/actions/runs/39303361998 — successful release b4594790e44281f2a40b64bbcff65fadfd000ee0; actual website script app.js?v=99233f8f47d5cc6e
 
-The two WEBSITE_*_DOSSIER.json files were exported by actual published product controls after successful finalized get_record reads. Their evidence origin is FINALIZED CONTRACT READ; they contain no invented transaction receipt. pages-resource-check.json records independent HTTP resource responses and release identity.
+## Corrected frontend defect
 
-In a browser with your Studionet wallet, open https://halihalibt.github.io/patchdebt-genlayer/ , Verify Source, Connect Wallet on chain 61999, Load Public Doc Input, enter a fresh request ID `patchdebt-web-e2e-001` (query first; if already used choose a new ID), and approve exactly one assessment. Recheck until finalized, export its dossier and return the transaction hash plus dossier. If submission is uncertain, recover and attach the original transaction ID; never resubmit. No private key or seed phrase is needed. This product-wallet transaction has NOT yet occurred.
+Studio's leader_receipt array contained a real mode=leader SUCCESS entry followed by an idle mode=validator ERROR entry. The old UI selected the last entry and falsely displayed execution ERROR. It now selects the actual leader and checks majority agreement. Actual leader errors, incomplete finality, insufficient votes and mismatched transaction arguments remain rejected. The export status now appears in the Chain Desk too; browser download URLs are revoked after a delay. Known manifest-linked records can recover transaction-bound dossiers through READ FINALIZED RECORD without another signature.
 
-Final browser observation: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/WEBSITE_BROWSER_ACCEPTANCE.json . Screenshot: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/website-finalized-record.jpg . Published HTML loads app.js?v=25534560bb12b9bd, matching bundled bytes. An unversioned script cache was found during acceptance and fixed by adding a build-time content hash. Final absent query returned no record with empty metadata/ledger and UNASSESSED; final wallet check found no EIP-1193 provider and SIGN ASSESSMENT disabled.
+The previous no-wallet blocker described the agent browser and is resolved for product E2E by the user's successful transaction and independent read-only recovery/export. No second signature is needed. The remaining PENDING rows are disclosed validation limits; strict completion of every requested acceptance check is not claimed. No Portal submission. No compatibility or change-list completeness guarantees.

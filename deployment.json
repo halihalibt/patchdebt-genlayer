@@ -70,10 +70,12 @@
     ]
   },
   "wallet_e2e": {
-    "status": "TRANSACTION_CONFIRMED",
+    "status": "VERIFIED",
     "transaction": "0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82",
     "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
     "request_id": "patchdebt-web-e2e-001",
-    "verification": "User signed via product wallet. Official Explorer independently shows FINALIZED/SUCCESS/Return/Normal/Accepted. Product receipt recovery is repaired in this release; final acceptance report tracks readback/export."
+    "verification": "User signed one assessment in product. Actual published website independently verified transaction sender/destination/method/arguments/finality/leader SUCCESS/majority votes and matching finalized record, then exported a receipt-bound dossier.",
+    "dossier": "https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/WEBSITE_WALLET_DOSSIER.json",
+    "verified_product_release": "b4594790e44281f2a40b64bbcff65fadfd000ee0"
   }
 }
