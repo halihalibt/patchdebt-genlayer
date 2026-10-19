@@ -12,7 +12,7 @@ Category suggestion: Developer Tools.
 
 Repository: https://github.com/halihalibt/patchdebt-genlayer
 
-Website: PENDING — expected https://halihalibt.github.io/patchdebt-genlayer/ must be verified after Pages is enabled.
+Website: existing preview https://patchdebt.zsf197176.chatgpt.site — VERIFIED native publication/public access setting, PENDING independent public-resource and browser acceptance (cloud HTTP 403). GitHub Pages expected URL https://halihalibt.github.io/patchdebt-genlayer/ remains BLOCKED until Pages is enabled. Do not claim either is a verified live onchain product.
 
 Complete contract: https://github.com/halihalibt/patchdebt-genlayer/blob/main/intelligent-contract/contracts/migration_coverage.py
 

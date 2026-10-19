@@ -1,0 +1,30 @@
+[
+  {
+    "path": "",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "path": "app.js",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "path": "deployment.json",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "path": "release.json",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "path": "assets/patchdebt-logo.png",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "path": "intelligent-contract/contracts/migration_coverage.py",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "path": "examples/live/covered.json",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

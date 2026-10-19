@@ -29,7 +29,7 @@ Serve `dist/` using a static host. `index.html` is the source template; `app.js`
 
 The workflow tests and builds B, uploads its Pages artifact, then deploys. Pages must first be enabled with Source = GitHub Actions at the repository's Settings → Pages. The currently observed site URL returned HTTP 404; no public publication success is claimed. The expected URL, **not yet verified live**, is https://halihalibt.github.io/patchdebt-genlayer/ . Failed historical Configure Pages logs returned Not Found; ordinary GITHUB_TOKEN cannot enable Pages without the required external administration permission.
 
-Only this repository owns product source. The earlier privately hosted prototype is not the submission website or this release.
+This repository is the sole GitHub product source. The existing PatchDebt hosting slot now mirrors tested B commit 0d9ae805743c1c5251959626c1030ebe6b2d93c0 at https://patchdebt.zsf197176.chatgpt.site . Native publication succeeded and access is public; independent HTTP resource checks from this environment returned 403, so public/browser acceptance remains pending. This fallback does not resolve the separate GitHub Pages setting or chain acceptance gates.
 
 ## Contract and logo
 
