@@ -4,4 +4,4 @@
 
 `missing.json` deliberately truncates that supplied excerpt to one row, to test missing guidance for the second obligation. It is NOT the complete official migration guide and must not be presented as evidence that Pydantic's guide is defective.
 
-`conflict.json` is an explicitly authored negative fixture contradicting that migration, not Pydantic's advice; its URL points to this repository's fixture. These files are inputs, not real chain results. Expected states are test expectations only; no deployment or consensus has occurred.
+`conflict.json` is an explicitly authored negative fixture contradicting that migration, not Pydantic's advice; its URL points to this repository's fixture. These files are inputs, not real chain results. Expected states describe fixture expectations. Actual executed outcomes are recorded separately in the repository evidence index.

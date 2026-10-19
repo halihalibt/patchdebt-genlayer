@@ -1,4 +1,4 @@
-# Runtime API audit — 2026-10-19 UTC
+# Runtime compatibility
 
 Target: Stable Studionet, 61999, `https://studio.genlayer.com/api`. Fixed source runner: `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`; inspected from official `genvm-universal` v0.2.16, SDK dependency `py-lib-genlayer-std:11rhn002yfajawsz7fai6mykznbxkxs6l91iskj5cm82c92qhy3v`.
 
@@ -14,9 +14,11 @@ Target: Stable Studionet, 61999, `https://studio.genlayer.com/api`. Fixed source
 
 Official linter 0.11.0 `check` passes with three W004 warnings for ordinary ValueError in write methods. These are advisory; malformed inputs fail before storage writes. The runtime test does not prove full transaction rollback or memory/time bounds in WASM.
 
-No Docker, GenVM executor binary, wasmtime or wasmer is available. Cached universal artifacts contain runners, not an executor. No full GenVM test is claimed. Stable RPC read-only JSON-RPC POST returned HTTP 403, body `error code: 1010`; see evidence/rpc-preflight.json. No repeated RPC probes or unofficial proxy were used. Studio signed execution is needed to establish the missing target-runtime/network evidence.
+## Execution scope
 
-Primary references, checked during this run:
+The pinned SDK schema, storage and callbacks were checked natively; the deployed contract was additionally exercised on Stable Studionet with successful finalized transactions. [Deployment evidence](../DEPLOYMENT_STATUS.md) and [validation](../VALIDATION.md) distinguish these layers. Full local WASM execution, universal model accuracy and WASM resource bounds are not established by native tests.
+
+## Official references
 
 - https://docs.genlayer.com/developers/intelligent-contracts/features/calling-llms
 - https://docs.genlayer.com/developers/intelligent-contracts/features/non-determinism
@@ -24,4 +26,4 @@ Primary references, checked during this run:
 - https://docs.genlayer.com/developers/intelligent-contracts/tooling-setup
 - https://docs.genlayer.com/developers/networks
 
-The docs explicitly distinguish native Direct/GLSim from Studio's full GenVM execution. A pinned runner header is not proof of the live node binary version.
+A pinned runner header identifies the source dependency; it does not identify every live node binary version.

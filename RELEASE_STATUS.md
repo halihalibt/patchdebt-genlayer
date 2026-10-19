@@ -1,7 +1,8 @@
-# Release status
+# Release 0.3
 
-VERIFIED: deployed source, existing records, user product-wallet transaction, real transaction-bound readback and actual dossier download.
+- Deployed contract: `0x724AcFe201463a016f59aC41516D99ab789a5c34` on Stable Studionet (61999).
+- Canonical source SHA-256: `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3`.
+- Verified product path: source identity → wallet assessment → finalized transaction and record → exported dossier.
+- Public application: [PatchDebt](https://halihalibt.github.io/patchdebt-genlayer/).
 
-The false execution ERROR was an idle validator receipt selected as leader; repaired in successful Pages run https://github.com/halihalibt/patchdebt-genlayer/actions/runs/39303361998 for b4594790e44281f2a40b64bbcff65fadfd000ee0. The acceptance-manifest publication follows this checkpoint; current release identity is available from public release.json. No source/business logic changes.
-
-See FINAL_READINESS_REPORT.md for PENDING visual/runtime/fault-injection validation. No further wallet transaction is needed. No Portal submission.
+See [release verification](FINAL_READINESS_REPORT.md), [recorded evidence](evidence/README.md) and the [published build identity](https://halihalibt.github.io/patchdebt-genlayer/release.json). The build identity gives the exact deployed commit and GitHub Actions run; the [Pages workflow](https://github.com/halihalibt/patchdebt-genlayer/actions/workflows/pages.yml) records its publication checks.

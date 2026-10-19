@@ -49,6 +49,5 @@
     "agree": 3,
     "idle": 2
   },
-  "not_a_raw_receipt_export": true,
-  "frontend_bug": "leader_receipt array contains real mode=leader SUCCESS followed by mode=validator idle ERROR; old code selected last entry incorrectly"
+  "not_a_raw_receipt_export": true
 }

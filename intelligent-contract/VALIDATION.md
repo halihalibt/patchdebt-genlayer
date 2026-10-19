@@ -1,12 +1,10 @@
-# Validation checkpoint
+# Contract validation
 
-| Layer | Result | Scope |
-|---|---|---|
-| CPython | VERIFIED — 24/24 | Substituted SDK, storage, model and consensus; validates ordering, quotes, malformed JSON/types, duplicate keys/changes/indices, idempotency, owner isolation, quota, disagreement and quote/reason audit rejection. |
-| Official SDK Direct Mode | VERIFIED — 10/10 | genlayer-test 0.29.2, SDK from GenVM v0.2.16, native Python; real storage, Address formatting, hashes, production validator callbacks, errors and closure serialization; host/LLM and consensus are mocked. |
-| Official linter | VERIFIED | genvm-linter 0.11.0, schema 3 methods; 3 advisory W004 ordinary exception warnings. |
-| Full WASM GenVM | BLOCKED | No executor/Docker available; native Direct Mode is not a substitute. |
-| Stable RPC | BLOCKED | Read-only POST HTTP 403 / Cloudflare 1010. |
-| Real deployment/consensus | PENDING | No transaction sent, no deployed address. User Studio signing package is provided. |
+This directory contains the complete canonical contract and its tests. Source and tests are byte-identical to [Migration Coverage Primitive](https://github.com/halihalibt/migration-coverage-primitive).
 
-The source checksum is independently calculated and stored in SOURCE_SHA256.txt. The initial checksum matched before edits; this release changes source and therefore has a new checksum. Evidence and limits must remain visible until actual onchain acceptance is recorded.
+- 24 CPython harness tests passed with mocked SDK/host behavior.
+- 10 official SDK Direct Mode tests passed natively with mocked host/model responses.
+- Official linter passed with three advisory W004 warnings.
+- Real Studionet deployment and assessments have finalized successful evidence.
+
+[Runtime compatibility](RUNTIME_AUDIT.md) · [Deployment](../DEPLOYMENT_STATUS.md) · [Validation scope](../VALIDATION.md#validation-boundaries) · [Evidence](../evidence/README.md).
