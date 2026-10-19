@@ -1,12 +1,21 @@
 import {createClient,abi} from 'genlayer-js';
-import {getAddress} from 'viem';
+import {getAddress,fromHex} from 'viem';
 import {studionet} from 'genlayer-js/chains';
 import {sha256,canonical,validateRecord,receiptState} from './core.js';
 const boundedRead=p=>Promise.race([p,new Promise((_,reject)=>{const t=setTimeout(()=>reject(Error('Read timed out after 20 seconds. Retry reads only; do not resubmit.')),20000);t.unref?.();p.finally(()=>clearTimeout(t)).catch(()=>{});})]);
 export const CHAIN_ID=61999;
 export const RPC='https://studio.genlayer.com/api';
+// Current node API uses status=finalized; SDK 1.1.8 emits only the legacy variant.
+export function finalizedReader(client){return {...client,readContract:async({address,functionName,args})=>{
+ const data=abi.transactions.serialize([abi.calldata.encode(abi.calldata.makeCalldataObject(functionName,args)),false]);
+ const result=await client.request({method:'gen_call',params:[{type:'read',to:address,from:'0x0000000000000000000000000000000000000000',data,status:'finalized'}]});
+ if(result?.status&&result.status.code!==0)throw Error('gen_call failed: '+result.status.message);
+ const raw=typeof result==='string'?result:result?.data;
+ if(typeof raw!=='string')throw Error('Invalid finalized read response.');
+ return abi.calldata.decode(fromHex(raw.startsWith('0x')?raw:'0x'+raw,'bytes'));
+ }};}
 export class ChainDesk{
- constructor({expectedHash,client=createClient({chain:studionet}),manifest,storage=globalThis.localStorage,onChange=()=>{}}){this.client=client;this.expectedHash=expectedHash;this.manifest=manifest;this.storage=storage;this.onChange=onChange;this.bound=null;this.account=null;this.provider=null;this.busy=false;this.pending=JSON.parse(storage.getItem('patchdebt.pending.v1')||'null');}
+ constructor({expectedHash,client=finalizedReader(createClient({chain:studionet})),manifest,storage=globalThis.localStorage,onChange=()=>{}}){this.client=client;this.expectedHash=expectedHash;this.manifest=manifest;this.storage=storage;this.onChange=onChange;this.bound=null;this.account=null;this.provider=null;this.busy=false;this.pending=JSON.parse(storage.getItem('patchdebt.pending.v1')||'null');}
  async bind(address){this.bound=null;this.account=null;if(!/^0x[\da-fA-F]{40}$/.test(address))throw Error('Enter a deployed contract address.');address=getAddress(address);const source=await boundedRead(this.client.getContractCode(address));if(await sha256(source)!==this.expectedHash)throw Error('Deployed source SHA256 differs from this release.');await boundedRead(this.client.getContractSchema(address));this.bound=address;return this.bound;}
  invalidate(){this.account=null;this.writer=null;this.onChange('Wallet changed. Reconnect before submitting.');}
  async connect(provider){if(!this.bound)throw Error('Verify deployed source first.');if(!provider)throw Error('Install an EIP-1193 browser wallet.');const accounts=await provider.request({method:'eth_requestAccounts'});const chain=await provider.request({method:'eth_chainId'});if(Number(chain)!==CHAIN_ID){await provider.request({method:'wallet_switchEthereumChain',params:[{chainId:'0xf22f'}]});}if(Number(await provider.request({method:'eth_chainId'}))!==CHAIN_ID)throw Error('Wallet must use Stable Studionet 61999.');this.provider=provider;this.account=accounts[0]?.toLowerCase();if(!/^0x[\da-f]{40}$/.test(this.account))throw Error('No wallet account.');this.writer=createClient({chain:studionet,account:this.account,provider});provider.on?.('accountsChanged',()=>this.invalidate());provider.on?.('chainChanged',()=>this.invalidate());return this.account;}
