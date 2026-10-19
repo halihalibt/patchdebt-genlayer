@@ -105,21 +105,28 @@ class MigrationCoverage(gl.Contract):
         if int(self.counts.get(owner, 0)) >= 64:
             raise ValueError('owner record limit')
         # Capture immutable primitives before entering non-deterministic execution.
+        def response_text(response):
+            if isinstance(response, str):
+                return response
+            return json.dumps(response, sort_keys=True, separators=(',', ':'))
         def leader():
-            raw = gl.nondet.exec_prompt(RULES + '\nINPUT_JSON:\n' + canonical)
+            response = gl.nondet.exec_prompt(
+                RULES + '\nINPUT_JSON:\n' + canonical, response_format='json')
+            raw = response_text(response)
             validate_result(raw, data)
             return raw
         def validator(candidate):
             if not isinstance(candidate, gl.vm.Return):
                 return False
             try:
-                raw = candidate.calldata
-                validate_result(raw, data)
-                audit = gl.nondet.exec_prompt(
-                    RULES + '\nIndependently audit EVERY proposed status, quote and reason. '
-                    'Reject omitted actions, false coverage, ignored conflicts, or unsupported certainty. '
-                    'Return exactly ACCEPT or REJECT.\nINPUT_JSON:\n' + canonical + '\nPROPOSAL_JSON:\n' + raw)
-                return audit.strip() == 'ACCEPT'
+                proposed = validate_result(response_text(candidate.calldata), data)
+                independent_response = gl.nondet.exec_prompt(
+                    RULES + '\nPerform a fresh independent assessment. Do not copy a previous answer. '
+                    'Judge every declared change using only the input below.\nINPUT_JSON:\n' + canonical,
+                    response_format='json')
+                independent = validate_result(response_text(independent_response), data)
+                # Reasoning and quotations may vary; the consensus-critical decision is each ordered status.
+                return [x['status'] for x in proposed['items']] == [x['status'] for x in independent['items']]
             except Exception:
                 return False
         raw = gl.vm.run_nondet_unsafe(leader, validator)
