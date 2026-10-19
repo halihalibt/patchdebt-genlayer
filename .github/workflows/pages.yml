@@ -19,6 +19,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate static page and inline JavaScript
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page = Path('index.html').read_text(encoding='utf-8')
+          required = ['id="desk"', 'id="inspect"', 'id="export"', 'data-case="debt"', 'data-case="covered"', 'data-case="conflict"', 'prefers-reduced-motion']
+          missing = [item for item in required if item not in page]
+          if missing:
+              raise SystemExit('Missing expected UI markers: ' + ', '.join(missing))
+          if page.count('<script>') != 1 or page.count('</script>') < 1:
+              raise SystemExit('Expected exactly one inline application script')
+          script = page.rsplit('<script>', 1)[1].split('</script>', 1)[0]
+          Path('/tmp/patchdebt-inline.mjs').write_text(script, encoding='utf-8')
+          print('Static UI markers present; extracted inline script.')
+          PY
+          node --check /tmp/patchdebt-inline.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Prepare static site
