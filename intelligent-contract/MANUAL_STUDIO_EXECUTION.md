@@ -1,6 +1,6 @@
 # Manual Studio Execution Package — PatchDebt / halihalibt
 
-Status: PENDING real execution. Do not use any unrelated project account or address.
+Status: Historical Studio runbook; the deployment and two assessments already exist and are now independently verified. Do NOT redeploy or repeat those requests. See the current FINAL_READINESS_REPORT.md in the repository root. Only the separate website-wallet E2E remains blocked; this runbook is not a request to recreate evidence.
 
 ## 1. File and network
 

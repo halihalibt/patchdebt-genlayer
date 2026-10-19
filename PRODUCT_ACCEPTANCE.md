@@ -13,8 +13,8 @@ Canonical SHA256: `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4
 | Both finalized website get_record reads | VERIFIED | Actual public website exports in B evidence/; exact IDs, hashes and ordered findings |
 | get_count(owner)=2 | PENDING | Original user report preserved; not independently queried |
 | Production frontend build | VERIFIED | 19 frontend tests passed; not evidence of wallet E2E |
-| Public Pages release | VERIFIED | Run 39299326450 succeeded for 3f79fd9756dc99e5cae8fe0973512e7a1a636174; next acceptance-manifest release needs its own final publication check |
-| Missing-record live handling | VERIFIED | Actual absent request returns no finalized record; stale-ledger clearing fix tested, final browser recheck required |
+| Public Pages release | VERIFIED | Run 39300248515 succeeded for 1a84985e735d18cc14f876431ed9deebfd1fc444; published release.json independently matches that commit/run |
+| Missing-record live handling | VERIFIED | Actual absent request returns no finalized record; query clears prior ledger and metadata; automated and final live browser checks recorded |
 | Live source-mismatch / RPC outage injection | PENDING | Unit rejection tests pass; original actual RPC failure displayed an error, never success; no fabricated live fault test |
 | Desktop controls / resource loading | VERIFIED | Actual Verify Source, both record queries, exports and absent query; six public resources HTTP 200 |
 | Mobile layout | PENDING | Responsive CSS retained; no mobile viewport rendering acceptance performed |
@@ -37,3 +37,5 @@ Pending recovery, sender/destination/method/arguments binding, failed execution 
 The two WEBSITE_*_DOSSIER.json files were exported by actual published product controls after successful finalized get_record reads. Their evidence origin is FINALIZED CONTRACT READ; they contain no invented transaction receipt. pages-resource-check.json records independent HTTP resource responses and release identity.
 
 In a browser with your Studionet wallet, open https://halihalibt.github.io/patchdebt-genlayer/ , Verify Source, Connect Wallet on chain 61999, Load Public Doc Input, enter a fresh request ID `patchdebt-web-e2e-001` (query first; if already used choose a new ID), and approve exactly one assessment. Recheck until finalized, export its dossier and return the transaction hash plus dossier. If submission is uncertain, recover and attach the original transaction ID; never resubmit. No private key or seed phrase is needed. This product-wallet transaction has NOT yet occurred.
+
+Final browser observation: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/WEBSITE_BROWSER_ACCEPTANCE.json . Screenshot: https://github.com/halihalibt/patchdebt-genlayer/blob/main/evidence/website-finalized-record.jpg . Published HTML loads app.js?v=25534560bb12b9bd, matching bundled bytes. An unversioned script cache was found during acceptance and fixed by adding a build-time content hash. Final absent query returned no record with empty metadata/ledger and UNASSESSED; final wallet check found no EIP-1193 provider and SIGN ASSESSMENT disabled.

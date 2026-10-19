@@ -37,3 +37,5 @@ Constructor has no arguments. `assess(request_id, payload)` accepts the JSON inp
 In a browser with your Studionet wallet, open https://halihalibt.github.io/patchdebt-genlayer/ , Verify Source, Connect Wallet on chain 61999, Load Public Doc Input, enter a fresh request ID `patchdebt-web-e2e-001` (query first; if already used choose a new ID), and approve exactly one assessment. Recheck until finalized, export its dossier and return the transaction hash plus dossier. If submission is uncertain, recover and attach the original transaction ID; never resubmit. No private key or seed phrase is needed. This product-wallet transaction has NOT yet occurred.
 
 Product-wallet E2E and mobile render acceptance remain outstanding. Do not claim full local WASM execution or already completed Portal submission.
+
+Publication (VERIFIED): https://github.com/halihalibt/patchdebt-genlayer/actions/runs/39300248515 ; public release identity 1a84985e735d18cc14f876431ed9deebfd1fc444.

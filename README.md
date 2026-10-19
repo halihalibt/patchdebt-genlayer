@@ -27,7 +27,7 @@ Serve `dist/` using a static host. `index.html` is the source template; `app.js`
 
 ## Publication
 
-The workflow tests, builds and publishes B through GitHub Pages. Run 39299326450 succeeded on 3f79fd9756dc99e5cae8fe0973512e7a1a636174; final acceptance-manifest publication is checked separately in the release evidence. Six public resources returned HTTP 200, including HTML, bundled JS, logo, manifest, release identity and canonical source. Pages is enabled; older Pages/preview blockers are historical and do not describe the current public site.
+The workflow tests, builds and publishes B through GitHub Pages. Run 39300248515 succeeded on 1a84985e735d18cc14f876431ed9deebfd1fc444. Final public release.json matches that commit/run; evidence/pages-resource-check.json records all six HTTP 200 responses. Six public resources returned HTTP 200, including HTML, bundled JS, logo, manifest, release identity and canonical source. Pages is enabled; older Pages/preview blockers are historical and do not describe the current public site.
 
 ## Contract and logo
 
