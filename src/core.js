@@ -5,4 +5,16 @@ export function validateInput(d){for(const k of ['package','from_version','to_ve
 export function validateAssessment(r,d){if(!r||Object.keys(r).sort().join()!=='items'||!Array.isArray(r.items)||r.items.length!==d.changes.length)throw Error('Invalid assessment count.');for(const [i,x]of r.items.entries()){if(!x||Object.keys(x).sort().join()!=='index,quote,reason,status'||x.index!==i||!['COVERED','MISSING','CONFLICT','UNKNOWN'].includes(x.status)||typeof x.quote!=='string'||length(x.quote)>800||typeof x.reason!=='string'||length(x.reason)<10||length(x.reason)>400||!x.reason.trim())throw Error('Invalid finding.');if(x.quote&&!d.guide.includes(x.quote))throw Error('Fabricated quotation.');if(['COVERED','CONFLICT'].includes(x.status)&&!x.quote.trim())throw Error('Missing evidence.');if(x.status==='MISSING'&&x.quote)throw Error('Invalid missing evidence.');}return r;}
 export function summarize(r){const s=r.items.map(x=>x.status);return s.includes('CONFLICT')?'BLOCKED':s.includes('MISSING')?'DEBT':s.includes('UNKNOWN')?'REVIEW':'COVERED';}
 export async function validateRecord(r,{owner,requestId,digest}={}){if(!r||r.protocol!=='migration-coverage-v1'||!/^0x[0-9a-f]{40}$/.test(r.owner)||!/^[-\w]{1,64}$/.test(r.request_id))throw Error('Not a PatchDebt record.');validateInput(r.input);validateAssessment(r.assessment,r.input);const actual=await sha256(canonical(r.input));if(actual!==r.input_sha256||r.state!==summarize(r.assessment))throw Error('Record hash/state mismatch.');if(owner&&r.owner!==owner.toLowerCase()||requestId&&r.request_id!==requestId||digest&&r.input_sha256!==digest)throw Error('Record does not match this request.');return r;}
-export function receiptState(tx){const status=tx.statusName??tx.status;const leaders=tx.consensus_data?.leader_receipt;const list=Array.isArray(leaders)?leaders:leaders?[leaders]:[];const execution=tx.txExecutionResultName??list.at(-1)?.execution_result;const success=execution==='FINISHED_WITH_RETURN'||execution==='SUCCESS';const agreement=tx.resultName==='MAJORITY_AGREE'||tx.resultName==='SUCCESS'||list.at(-1)?.vote==='agree'||tx.consensus_data?.final===true&&Object.values(tx.consensus_data?.votes||{}).filter(v=>String(v).toLowerCase()==='agree').length>Object.values(tx.consensus_data?.votes||{}).length/2;return {status,execution,final:status==='FINALIZED',success,agreement,complete:status==='FINALIZED'&&success&&agreement};}
+export function receiptState(tx){
+ const status=tx.statusName??tx.status,consensus=tx.consensus_data;
+ const raw=consensus?.leader_receipt;
+ const receipts=Array.isArray(raw)?raw:raw?[raw]:[];
+ // Studio may append an idle validator receipt to leader_receipt. It is not execution evidence.
+ const leader=receipts.filter(r=>r.mode==='leader').at(-1)??(receipts.length===1&&!receipts[0].mode?receipts[0]:undefined);
+ const execution=tx.txExecutionResultName??leader?.execution_result;
+ const votes=Object.values(consensus?.votes??{});
+ const majority=votes.length>0&&votes.filter(v=>String(v).toLowerCase()==='agree').length>votes.length/2;
+ const success=execution==='FINISHED_WITH_RETURN'||execution==='SUCCESS';
+ const agreement=tx.resultName?['MAJORITY_AGREE','SUCCESS'].includes(tx.resultName):status==='FINALIZED'&&majority;
+ return {status,execution,final:status==='FINALIZED',success,agreement,complete:status==='FINALIZED'&&success&&agreement};
+}

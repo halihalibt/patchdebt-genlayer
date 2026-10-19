@@ -6,10 +6,11 @@
   "deployment_tx": "0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387",
   "assessment_tx": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
   "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
-  "verification": "Deployed source identity, both existing finalized website record reads and all three Explorer transaction outcomes independently verified. Product wallet E2E remains BLOCKED: no EIP-1193 provider in acceptance browser.",
+  "verification": "Original deployed source and two finalized records verified. New user product-wallet assessment independently confirmed in Explorer; frontend receipt normalization repaired; final readback/export acceptance is tracked in reports.",
   "assessment_txs": {
     "patchdebt-public-001": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
-    "patchdebt-gap-001": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58"
+    "patchdebt-gap-001": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+    "patchdebt-web-e2e-001": "0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82"
   },
   "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
   "record_count": 2,
@@ -33,6 +34,18 @@
         "MISSING"
       ],
       "input_sha256": "2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82"
+    },
+    {
+      "request_id": "patchdebt-web-e2e-001",
+      "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+      "transaction": "0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82",
+      "observed_state": "COVERED",
+      "observed_item_statuses": [
+        "COVERED",
+        "COVERED"
+      ],
+      "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7",
+      "origin": "INDEPENDENT_EXPLORER_BROWSER_OBSERVATION"
     }
   ],
   "evidence_origin": "USER_PROVIDED_STUDIO_RESULTS",
@@ -57,7 +70,10 @@
     ]
   },
   "wallet_e2e": {
-    "status": "BLOCKED",
-    "reason": "Acceptance browser has no EIP-1193 wallet provider. No new transaction sent."
+    "status": "TRANSACTION_CONFIRMED",
+    "transaction": "0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82",
+    "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+    "request_id": "patchdebt-web-e2e-001",
+    "verification": "User signed via product wallet. Official Explorer independently shows FINALIZED/SUCCESS/Return/Normal/Accepted. Product receipt recovery is repaired in this release; final acceptance report tracks readback/export."
   }
 }

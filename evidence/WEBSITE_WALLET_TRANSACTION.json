@@ -1,0 +1,54 @@
+{
+  "origin": "INDEPENDENT_EXPLORER_BROWSER_OBSERVATION",
+  "url": "https://explorer-studio.genlayer.com/tx/0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82",
+  "transaction": "0x50d745ee7ddfc89fcbf54c849585ab870b4215d1ca73f456511502dea7f28d82",
+  "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+  "destination": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+  "status": "FINALIZED",
+  "execution": "SUCCESS",
+  "result_code": "Return",
+  "execution_mode": "Normal",
+  "consensus_result": "Accepted",
+  "method": "assess",
+  "request_id": "patchdebt-web-e2e-001",
+  "returned_record": {
+    "assessment": {
+      "items": [
+        {
+          "index": 0,
+          "quote": "dict() | model_dump()",
+          "reason": "The migration guide explicitly maps the V1 BaseModel.dict() method to the V2 model_dump() method, providing a concrete replacement.",
+          "status": "COVERED"
+        },
+        {
+          "index": 1,
+          "quote": "parse_obj() | model_validate()",
+          "reason": "The guide directly shows that BaseModel.parse_obj() should be replaced with the V2 model_validate() method, offering a clear migration action.",
+          "status": "COVERED"
+        }
+      ]
+    },
+    "input": {
+      "changes": [
+        "Replace BaseModel.dict() with the V2 model_dump() method.",
+        "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+      ],
+      "from_version": "1.x",
+      "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()\nparse_obj() | model_validate()",
+      "package": "Pydantic BaseModel",
+      "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel",
+      "to_version": "2.x"
+    },
+    "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7",
+    "owner": "0x49ce61764cca0c15a79e2d98baa535fc7547eb3a",
+    "protocol": "migration-coverage-v1",
+    "request_id": "patchdebt-web-e2e-001",
+    "state": "COVERED"
+  },
+  "visible_votes": {
+    "agree": 3,
+    "idle": 2
+  },
+  "not_a_raw_receipt_export": true,
+  "frontend_bug": "leader_receipt array contains real mode=leader SUCCESS followed by mode=validator idle ERROR; old code selected last entry incorrectly"
+}
