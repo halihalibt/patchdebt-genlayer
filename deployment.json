@@ -1,0 +1,10 @@
+{
+  "status": "PENDING_DEPLOYMENT",
+  "address": null,
+  "chain_id": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "deployment_tx": null,
+  "assessment_tx": null,
+  "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
+  "verification": "No onchain deployment or full GenVM execution has been verified."
+}

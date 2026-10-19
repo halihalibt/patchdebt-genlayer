@@ -1,9 +1,14 @@
-# Validation boundary
+# Verification boundary — v0.3 candidate
 
-- The root `index.html` is a static, offline-first demonstration workbench.
-- The three case studies are authored fixtures; they are not AI judgments or chain results.
-- Custom inputs intentionally do not receive a semantic verdict in offline mode.
-- The browser export labels the evidence origin and hashes the canonicalized input.
-- The contract source is copied from `halihalibt/migration-coverage-primitive`; its SHA-256 is recorded in `SOURCE_SHA256.txt`.
-- Contract tests use mocked GenLayer interfaces under ordinary CPython. They do not establish GenVM compatibility.
-- No deployment, transaction, wallet write, or live consensus is claimed.
+| Check | State | Evidence |
+|---|---|---|
+| Frontend tests | VERIFIED — 17/17 locally | Node tests include Python/JS hash parity, quote/count/order checks, record binding, source mismatch, write gating, duplicate/uncertain submission recovery, unrelated transaction rejection, pending state, terminal execution failure, actual UI case/edit events and pending deployment controls. |
+| Build | VERIFIED locally | esbuild emits static site and bundled pinned SDK. No runtime secret needed. |
+| Canonical source | VERIFIED locally | Included full source and test files byte-identical to A, actual SHA256 independently computed. |
+| Contract CPython | VERIFIED — 24/24 | Substituted SDK/storage/model/consensus. |
+| Official SDK Direct | VERIFIED — 10/10 | Native runner SDK/storage + mocked host. Not WASM or network. See intelligent-contract/RUNTIME_AUDIT.md. |
+| Full GenVM, deployment, wallet E2E | BLOCKED / PENDING | No full executor; RPC HTTP 403/1010; no user signature or live address. |
+| GitHub Pages | BLOCKED at recovery | Historical Configure Pages failed Not Found; expected site returned 404. Administration setting is required. New workflow results must be inspected separately. |
+| Desktop/mobile visual, console, public asset checks | PENDING | Supported browser automation capability unavailable. No browser was installed or substituted to invent visual QA. |
+
+No fixture, mock receipt, offline hash or local SDK result establishes real chain consensus. `deployment.json` remains PENDING_DEPLOYMENT and locks live signing. The live adapter can be activated only after source identity and actual deployment/assessment evidence are independently verified. See RELEASE_STATUS.md for observed GitHub checks.

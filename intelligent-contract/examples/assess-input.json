@@ -1,0 +1,11 @@
+{
+  "package": "Orbit SDK",
+  "from_version": "1.0",
+  "to_version": "2.0",
+  "changes": [
+    "Replace apiKey authentication with token authentication.",
+    "Initialize the client with the new endpoint option."
+  ],
+  "guide": "For version 2.0, replace apiKey with token. Create the client with the endpoint option set to your service URL.",
+  "source_url": "https://example.com/orbit/migrate-v2"
+}

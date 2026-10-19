@@ -1,7 +1,5 @@
-# Deployment and verification status
+# Deployment status
 
-- Current status: source and local CPython harness only.
-- The unit harness substitutes GenLayer APIs; passing tests do not establish GenVM compatibility.
-- No deployed contract address, transaction hash, or on-chain execution is claimed.
-- Before deployment: validate the source against the currently supported GenLayer SDK/runtime, run official GenVM tests, then deploy manually through GenLayer Studio and preserve the transaction receipt and contract address.
-- Never place private keys or seed phrases in this repository.
+PENDING. Network: Stable GenLayer Studionet, chain 61999.
+
+No contract address or transaction is recorded. Full GenVM execution is unverified. Cloud RPC returned 403/1010. Do not use a prior project address. Deploy only the canonical file whose SHA256 is in SOURCE_SHA256.txt, using the no-argument constructor and Normal / full consensus. Follow MANUAL_STUDIO_EXECUTION.md and preserve actual receipts before changing this status.

@@ -1,0 +1,11 @@
+{
+  "package": "Pydantic BaseModel",
+  "from_version": "1.x",
+  "to_version": "2.x",
+  "changes": [
+    "Replace BaseModel.dict() with the V2 model_dump() method.",
+    "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+  ],
+  "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()",
+  "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel"
+}

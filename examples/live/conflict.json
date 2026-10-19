@@ -1,0 +1,11 @@
+{
+  "package": "Pydantic BaseModel",
+  "from_version": "1.x",
+  "to_version": "2.x",
+  "changes": [
+    "Replace BaseModel.dict() with the V2 model_dump() method.",
+    "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+  ],
+  "guide": "For this migration, keep calling BaseModel.dict() and BaseModel.parse_obj(); do not adopt model_dump() or model_validate().",
+  "source_url": "https://github.com/halihalibt/migration-coverage-primitive/blob/main/examples/live/conflict.json"
+}
