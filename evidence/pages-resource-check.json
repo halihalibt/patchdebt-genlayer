@@ -1,0 +1,93 @@
+[
+  {
+    "url": "https://halihalibt.github.io/patchdebt-genlayer/",
+    "status": 200,
+    "bytes": 21399,
+    "sha256": "ad5ba83549b0093e679ea55bf8ba210ea501ea756a912d3f6fcefa635bd0df19"
+  },
+  {
+    "url": "https://halihalibt.github.io/patchdebt-genlayer/app.js",
+    "status": 200,
+    "bytes": 569983,
+    "sha256": "1856d70328f679b8d195008d82a8bbba2447f64ffa2cb869522c94665fc8048f"
+  },
+  {
+    "url": "https://halihalibt.github.io/patchdebt-genlayer/assets/patchdebt-logo.png",
+    "status": 200,
+    "bytes": 189067,
+    "sha256": "025954dc9de98e2de27b0f12fe0c4f132ad83d552b36ebb2a459e339a2a90d65"
+  },
+  {
+    "url": "https://halihalibt.github.io/patchdebt-genlayer/deployment.json",
+    "status": 200,
+    "bytes": 1981,
+    "sha256": "41d6f3e5af036ae62a5766da4922304f39c8c34091cb47edf073de3356cff9c9",
+    "json": {
+      "status": "DEPLOYED_PENDING_SOURCE_VERIFICATION",
+      "address": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+      "chain_id": 61999,
+      "rpc": "https://studio.genlayer.com/api",
+      "deployment_tx": "0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387",
+      "assessment_tx": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+      "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
+      "verification": "Studio deployment and two record outcomes reported by user. Source identity, independent record readbacks, receipts/consensus and website-wallet E2E remain unverified.",
+      "assessment_txs": {
+        "patchdebt-public-001": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+        "patchdebt-gap-001": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58"
+      },
+      "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+      "record_count": 2,
+      "assessments": [
+        {
+          "request_id": "patchdebt-public-001",
+          "transaction": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+          "reported_state": "COVERED",
+          "reported_item_statuses": [
+            "COVERED",
+            "COVERED"
+          ],
+          "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7"
+        },
+        {
+          "request_id": "patchdebt-gap-001",
+          "transaction": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+          "reported_state": "DEBT",
+          "reported_item_statuses": [
+            "COVERED",
+            "MISSING"
+          ],
+          "input_sha256": "2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82"
+        }
+      ],
+      "evidence_origin": "USER_PROVIDED_STUDIO_RESULTS",
+      "source_verification": {
+        "status": "PENDING",
+        "expected_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
+        "actual_sha256": null
+      },
+      "record_verification": {
+        "status": "PENDING"
+      },
+      "wallet_e2e": {
+        "status": "PENDING"
+      }
+    }
+  },
+  {
+    "url": "https://halihalibt.github.io/patchdebt-genlayer/release.json",
+    "status": 200,
+    "bytes": 111,
+    "sha256": "7fc376bf2608aa174b194b6ca65c7ef682575e7172e06cbbced4cd588546a290",
+    "json": {
+      "commit": "3f79fd9756dc99e5cae8fe0973512e7a1a636174",
+      "run": "39299326450",
+      "built_at": "2026-10-19T18:03:30.939Z"
+    }
+  },
+  {
+    "url": "https://halihalibt.github.io/patchdebt-genlayer/intelligent-contract/contracts/migration_coverage.py",
+    "status": 200,
+    "bytes": 8916,
+    "sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3"
+  }
+]

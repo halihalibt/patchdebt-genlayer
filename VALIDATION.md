@@ -1,19 +1,7 @@
-# Verification boundary — v0.3 candidate
+# Validation index
 
-| Check | State | Evidence |
-|---|---|---|
-| Frontend tests | VERIFIED — 17/17 locally | Node tests include Python/JS hash parity, quote/count/order checks, record binding, source mismatch, write gating, duplicate/uncertain submission recovery, unrelated transaction rejection, pending state, terminal execution failure, actual UI case/edit events and pending deployment controls. |
-| Build | VERIFIED locally | esbuild emits static site and bundled pinned SDK. No runtime secret needed. |
-| Canonical source | VERIFIED locally | Included full source and test files byte-identical to A, actual SHA256 independently computed. |
-| Contract CPython | VERIFIED — 24/24 | Substituted SDK/storage/model/consensus. |
-| Official SDK Direct | VERIFIED — 10/10 | Native runner SDK/storage + mocked host. Not WASM or network. See intelligent-contract/RUNTIME_AUDIT.md. |
-| Full GenVM, deployment, wallet E2E | BLOCKED / PENDING | No full executor; RPC HTTP 403/1010; no user signature or live address. |
-| GitHub Pages | BLOCKED at recovery | Historical Configure Pages failed Not Found; expected site returned 404. Administration setting is required. New workflow results must be inspected separately. |
-| Existing PatchDebt hosting | VERIFIED publication; PENDING independent access | Saved version 2 deployed successfully, public access confirmed through hosting API. External HTTP resource requests returned 403; no browser/resource success is claimed. |
-| Desktop/mobile visual, console, public asset checks | PENDING | Supported browser automation capability unavailable. No browser was installed or substituted to invent visual QA. |
+See [current acceptance matrix](FINAL_READINESS_REPORT.md), [independent Explorer evidence](evidence/EXPLORER_VERIFICATION.md), and [original user reports](evidence/STUDIO_REPORTED_EVIDENCE.md).
 
-No fixture, mock receipt, offline hash or local SDK result establishes real chain consensus. `deployment.json` remains PENDING_DEPLOYMENT and locks live signing. The live adapter can be activated only after source identity and actual deployment/assessment evidence are independently verified. See RELEASE_STATUS.md for observed GitHub checks.
+VERIFIED: 24 CPython harness tests; 10 prior official SDK Direct Mode tests (native, not WASM); source/checksum equality; deployed source identity; two actual finalized website record reads; 19 frontend tests and production build.
 
-## Current reconciliation
-
-Historical no-deployment / Pages-setting-blocked entries above are superseded: user reports one deployment plus two results (evidence/STUDIO_REPORTED_EVIDENCE.json), and Pages run 39292310817 succeeded. Current manifest is DEPLOYED_PENDING_SOURCE_VERIFICATION. Independent source/readback/receipt and website-wallet acceptance remain PENDING. Prior full-WASM limitations still apply.
+PENDING: full local WASM execution, mobile rendering acceptance, independent count readback. BLOCKED: new website-wallet E2E and live pending recovery without an installed wallet. Studio transactions are not product-wallet proof. Runtime details remain in RUNTIME_AUDIT.md (A) and intelligent-contract/RUNTIME_AUDIT.md (B).

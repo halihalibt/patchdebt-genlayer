@@ -1,5 +1,7 @@
-# Current release status
+# Release status
 
-Studio deployment and 2 outcomes are recorded as USER_PROVIDED_STUDIO_RESULTS. Status is DEPLOYED_PENDING_SOURCE_VERIFICATION. See DEPLOYMENT_STATUS.md and evidence/STUDIO_REPORTED_EVIDENCE.md.
+Deployment and finalized record acceptance: VERIFIED. Product-wallet E2E: BLOCKED (no EIP-1193 wallet). Full submission readiness: PENDING.
 
-Previous Pages publication run 39292310817 succeeded; the old Pages-setting blocker no longer applies. The new evidence reconciliation requires a fresh successful publication and actual website acceptance. Source verification, independent readbacks, receipts and wallet E2E remain PENDING. No duplicate transaction or Portal submission is authorized by this update.
+The source/business logic is frozen at SHA256 f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3. Website reading was repaired for the documented finalized RPC parameter. The manifest is VERIFIED_ONCHAIN after actual source/record/Explorer verification; it does not certify wallet E2E.
+
+See FINAL_READINESS_REPORT.md for exact scope and unresolved gates. No Portal submission.

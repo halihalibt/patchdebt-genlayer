@@ -1,0 +1,124 @@
+{
+  "origin": "INDEPENDENT_OFFICIAL_EXPLORER_BROWSER_OBSERVATION",
+  "observed_at": "2026-10-19",
+  "not_a_raw_rpc_receipt_export": true,
+  "network_context": "Stable Studionet Explorer; chain ID 61999 configuration documented separately",
+  "transactions": [
+    {
+      "kind": "deployment",
+      "url": "https://explorer-studio.genlayer.com/tx/0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387",
+      "hash": "0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "result_code": "Return",
+      "execution_mode": "Normal",
+      "consensus_result": "Accepted",
+      "from": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "to": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+      "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3",
+      "source_bytes": 8916
+    },
+    {
+      "kind": "public",
+      "url": "https://explorer-studio.genlayer.com/tx/0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+      "hash": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "result_code": "Return",
+      "execution_mode": "Normal",
+      "consensus_result": "Accepted",
+      "from": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "to": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+      "method": "assess",
+      "returned_record": {
+        "assessment": {
+          "items": [
+            {
+              "index": 0,
+              "quote": "dict() | model_dump()",
+              "reason": "The guide explicitly maps the legacy dict() method to the new model_dump() method in the provided migration table.",
+              "status": "COVERED"
+            },
+            {
+              "index": 1,
+              "quote": "parse_obj() | model_validate()",
+              "reason": "The guide provides a direct replacement for parse_obj() by specifying model_validate() as the corresponding V2 method.",
+              "status": "COVERED"
+            }
+          ]
+        },
+        "input": {
+          "changes": [
+            "Replace BaseModel.dict() with the V2 model_dump() method.",
+            "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+          ],
+          "from_version": "1.x",
+          "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()\nparse_obj() | model_validate()",
+          "package": "Pydantic BaseModel",
+          "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel",
+          "to_version": "2.x"
+        },
+        "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7",
+        "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "protocol": "migration-coverage-v1",
+        "request_id": "patchdebt-public-001",
+        "state": "COVERED"
+      },
+      "visible_votes": {
+        "agree": 3,
+        "idle": 2
+      }
+    },
+    {
+      "kind": "gap",
+      "url": "https://explorer-studio.genlayer.com/tx/0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+      "hash": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+      "status": "FINALIZED",
+      "execution_result": "SUCCESS",
+      "result_code": "Return",
+      "execution_mode": "Normal",
+      "consensus_result": "Accepted",
+      "from": "0x22Acaa233b7b985b36ef168F2DE9295334065B15",
+      "to": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+      "method": "assess",
+      "returned_record": {
+        "assessment": {
+          "items": [
+            {
+              "index": 0,
+              "quote": "dict() | model_dump()",
+              "reason": "Guide maps BaseModel.dict() directly to model_dump() for V1-to-V2 migration.",
+              "status": "COVERED"
+            },
+            {
+              "index": 1,
+              "quote": "",
+              "reason": "Guide only lists dict() mapping; parse_obj() replacement is outside provided scope.",
+              "status": "MISSING"
+            }
+          ]
+        },
+        "input": {
+          "changes": [
+            "Replace BaseModel.dict() with the V2 model_dump() method.",
+            "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+          ],
+          "from_version": "1.x",
+          "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()",
+          "package": "Pydantic BaseModel",
+          "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel",
+          "to_version": "2.x"
+        },
+        "input_sha256": "2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82",
+        "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+        "protocol": "migration-coverage-v1",
+        "request_id": "patchdebt-gap-001",
+        "state": "DEBT"
+      },
+      "visible_votes": {
+        "agree": 3,
+        "idle": 2
+      }
+    }
+  ]
+}

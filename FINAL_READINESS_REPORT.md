@@ -1,33 +1,47 @@
-# Final acceptance — evidence reconciled, live verification PENDING
+# Final acceptance — source and records verified; wallet E2E blocked
 
-## VERIFIED
+Canonical SHA256: `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3`. Contract: `0x724AcFe201463a016f59aC41516D99ab789a5c34`. Stable Studionet, configured chain ID 61999. No redeployment, duplicate assessment or Portal submission occurred.
 
-- Canonical A/B contract bytes and SHA256 `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3` match; source/business logic/design remain frozen.
-- Prior local checks: 24 CPython unit tests, 10 official SDK Direct Mode tests, 17 frontend tests and production build passed. Direct Mode is native Python with mocked host, not full WASM GenVM or real consensus.
-- Prior Pages run https://github.com/halihalibt/patchdebt-genlayer/actions/runs/39292310817 succeeded on B 48fd91e39f72ba18a91570ba9b9731ef5b982162. The previous Pages-setting blocker is resolved; new reconciliation release still needs its own publication verification.
+| Acceptance gate | State | Evidence / limitation |
+|---|---|---|
+| A/B full contract and tests byte equality | VERIFIED | Independent local bytes comparison and SHA256; 8916 source bytes |
+| CPython harness | VERIFIED | 24 tests; mocks, not GenVM |
+| Official SDK Direct Mode | VERIFIED | 10 tests in prior runtime audit; native Python, not full WASM |
+| Full local WASM GenVM | PENDING | Not executed; no such claim |
+| Deployed source identity | VERIFIED | Website Verify Source and Explorer deployment code bytes match canonical hash |
+| Existing deployment and 2 assess transactions | VERIFIED | Official Explorer DOM: FINALIZED / SUCCESS / Return / Normal / Accepted |
+| Both finalized website get_record reads | VERIFIED | Actual public website exports in B evidence/; exact IDs, hashes and ordered findings |
+| get_count(owner)=2 | PENDING | Original user report preserved; not independently queried |
+| Production frontend build | VERIFIED | 19 frontend tests passed; not evidence of wallet E2E |
+| Public Pages release | VERIFIED | Run 39299326450 succeeded for 3f79fd9756dc99e5cae8fe0973512e7a1a636174; next acceptance-manifest release needs its own final publication check |
+| Missing-record live handling | VERIFIED | Actual absent request returns no finalized record; stale-ledger clearing fix tested, final browser recheck required |
+| Live source-mismatch / RPC outage injection | PENDING | Unit rejection tests pass; original actual RPC failure displayed an error, never success; no fabricated live fault test |
+| Desktop controls / resource loading | VERIFIED | Actual Verify Source, both record queries, exports and absent query; six public resources HTTP 200 |
+| Mobile layout | PENDING | Responsive CSS retained; no mobile viewport rendering acceptance performed |
+| Wallet availability | BLOCKED | Actual CONNECT WALLET: Install an EIP-1193 browser wallet |
+| New website-wallet assessment / pending reload / tx-bound dossier | BLOCKED | Requires wallet in user's browser; no new transaction was sent |
 
-## Reported Studio evidence (not independent receipt verification)
+Explorer observations are independent UI observations, not raw JSON-RPC receipt/vote exports. Each assessment displayed 3 agree and 2 idle votes. Existing website dossiers originate from finalized contract reads and do not falsely claim to contain a transaction receipt. Original Studio reports remain separately labelled USER_PROVIDED_STUDIO_RESULTS.
 
+The current node API requires `status: "finalized"` for gen_call. SDK 1.1.8 emitted only the legacy transaction_hash_variant; real website reads returned Contract not found. The adapter now sends the documented status explicitly using SDK calldata encoding/decoding; both real reads subsequently passed. Official reference: https://docs.genlayer.com/api-references/genlayer-node/gen/gen_call . Checksum addresses are retained. A real absent query exposed a stale visible ledger; the query now clears prior results before reading. Contract business logic and visual design are unchanged.
 
+Pending recovery, sender/destination/method/arguments binding, failed execution and duplicate blocking have automated coverage, not live wallet proof. Do not infer product-wallet success from prior Studio transactions. LLM semantic judgment is probabilistic and does not prove compatibility, source authenticity or completeness of declared changes.
 
-Reported network: Stable Studionet / 61999. Reported contract: `0x724AcFe201463a016f59aC41516D99ab789a5c34`. Actual source identity and transaction network details remain PENDING.
+## Exact readbacks
 
-Deployment transaction: `0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387`.
+| Request | State | Ordered findings | Input SHA256 |
+|---|---|---|---|
+| patchdebt-public-001 | COVERED | COVERED, COVERED | 5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7 |
+| patchdebt-gap-001 | DEBT | COVERED, MISSING | 2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82 |
 
+## Existing transaction links
 
+- Deployment: https://explorer-studio.genlayer.com/tx/0xfe07e2f31b1daa8ab577ad15ad6de2538c8ade6f782b97da31605581678d8387
+- Public assessment: https://explorer-studio.genlayer.com/tx/0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b
+- Gap assessment: https://explorer-studio.genlayer.com/tx/0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58
 
-See evidence/STUDIO_REPORTED_EVIDENCE.json and .md for both exact assessment IDs, hashes, outcomes and reported count 2. These records are user reports, not fabricated receipt/vote exports.
+## Minimum wallet handoff
 
-## PENDING / BLOCKED gates
+In a browser with your Studionet wallet, open https://halihalibt.github.io/patchdebt-genlayer/ , Verify Source, Connect Wallet on chain 61999, Load Public Doc Input, enter a fresh request ID `patchdebt-web-e2e-001` (query first; if already used choose a new ID), and approve exactly one assessment. Recheck until finalized, export its dossier and return the transaction hash plus dossier. If submission is uncertain, recover and attach the original transaction ID; never resubmit. No private key or seed phrase is needed. This product-wallet transaction has NOT yet occurred.
 
-| Gate | State |
-|---|---|
-| Reconciliation release CI/publication | PENDING new commit verification |
-| Public resources and desktop/mobile/browser controls | PENDING actual live browser acceptance |
-| Deployed source SHA256 | PENDING |
-| Both independent finalized record readbacks | PENDING |
-| Existing transaction network/finality/execution/consensus | PENDING where retrievable |
-| Full WASM GenVM | Not independently run; do not claim |
-| Actual product-wallet E2E and finalized dossier | PENDING; no new signature requested before source/record gates pass |
-
-Manifest remains DEPLOYED_PENDING_SOURCE_VERIFICATION, signing locked. Do not redeploy or repeat either existing request. No Portal submission. The project is not yet declared ready for either track. The previous no-deployment statements are superseded by the user-reported evidence; independent verification is separate.
+NOT fully submission-ready under the requested acceptance gates. No Portal submission. Actual Portal fields have not been inspected.
