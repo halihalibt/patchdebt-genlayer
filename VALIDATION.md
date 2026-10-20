@@ -8,9 +8,9 @@
 | Frontend tests | 22 passed | Input/evidence integrity, source gate, transaction binding, recovery, failures and duplicate prevention |
 | Real Studionet execution | Verified | Deployment and three assessments; finalized successful execution and accepted consensus |
 | Public website | Verified | Source check, finalized readback, transaction binding and actual JSON download |
-| Chrome narrow-screen workflow | Maintainer-confirmed | Successful JSON download, working controls and no console errors; [report](evidence/MANUAL_ACCEPTANCE.json) |
+| Chrome narrow-screen workflow | Manual check passed | JSON download, controls and application console checked in Chrome at narrow width |
 
-[Runtime compatibility](RUNTIME_AUDIT.md) documents the pinned SDK. [Deployment](DEPLOYMENT_STATUS.md) and [evidence index](evidence/README.md) link the actual records and provenance. Product-specific checks are in the [companion application](https://github.com/halihalibt/patchdebt-genlayer/blob/main/PRODUCT_ACCEPTANCE.md).
+[Runtime compatibility](RUNTIME_AUDIT.md) documents the pinned SDK. [Deployment](DEPLOYMENT.md) and [evidence index](evidence/README.md) link the actual records and provenance. The application includes finalized record lookup and transaction-bound JSON export.
 
 ## Validation boundaries
 

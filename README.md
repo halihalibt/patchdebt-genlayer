@@ -2,7 +2,7 @@
 
 PatchDebt turns software migration obligations into an evidence ledger. Compare a guide with an explicit change list, inspect exact quotations and explanations, and export a finalized GenLayer assessment with its transaction evidence.
 
-**[Open PatchDebt](https://halihalibt.github.io/patchdebt-genlayer/)** · [Usage](USAGE.md) · [Deployment](DEPLOYMENT_STATUS.md) · [Evidence](evidence/README.md) · [Validation](VALIDATION.md)
+**[Open PatchDebt](https://halihalibt.github.io/patchdebt-genlayer/)** · [Usage](USAGE.md) · [Deployment](DEPLOYMENT.md) · [Evidence](evidence/README.md) · [Validation](VALIDATION.md)
 
 ## Review a migration
 
@@ -28,7 +28,7 @@ The three authored interface examples are labelled **offline fixtures** and neve
 
 Stable GenLayer Studionet · chain ID **61999** · contract `0x724AcFe201463a016f59aC41516D99ab789a5c34`.
 
-Source verification, finalized record reads, a real website-wallet assessment and transaction-bound JSON export have been exercised on the public application. Desktop controls were independently tested; the maintainer confirmed the Chrome narrow-screen workflow, successful download, working controls and no console errors. [Product validation](PRODUCT_ACCEPTANCE.md).
+Source verification, finalized record reads, a real website-wallet assessment and transaction-bound JSON export have been exercised on the public application. Desktop and Chrome narrow-screen checks covered source verification, record lookup, JSON download, controls and the application console. [Testing](VALIDATION.md).
 
 ## Run locally
 

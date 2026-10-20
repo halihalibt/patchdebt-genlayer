@@ -7,4 +7,4 @@ This directory contains the complete canonical contract and its tests. Source an
 - Official linter passed with three advisory W004 warnings.
 - Real Studionet deployment and assessments have finalized successful evidence.
 
-[Runtime compatibility](RUNTIME_AUDIT.md) · [Deployment](../DEPLOYMENT_STATUS.md) · [Validation scope](../VALIDATION.md#validation-boundaries) · [Evidence](../evidence/README.md).
+[Runtime compatibility](RUNTIME_AUDIT.md) · [Deployment](../DEPLOYMENT.md) · [Validation scope](../VALIDATION.md#validation-boundaries) · [Evidence](../evidence/README.md).

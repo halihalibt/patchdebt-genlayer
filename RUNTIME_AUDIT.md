@@ -16,7 +16,7 @@ Official linter 0.11.0 `check` passes with three W004 warnings for ordinary Valu
 
 ## Execution scope
 
-The pinned SDK schema, storage and callbacks were checked natively; the deployed contract was additionally exercised on Stable Studionet with successful finalized transactions. [Deployment evidence](DEPLOYMENT_STATUS.md) and [validation](VALIDATION.md) distinguish these layers. Full local WASM execution, universal model accuracy and WASM resource bounds are not established by native tests.
+The pinned SDK schema, storage and callbacks were checked natively; the deployed contract was additionally exercised on Stable Studionet with successful finalized transactions. [Deployment evidence](DEPLOYMENT.md) and [validation](VALIDATION.md) distinguish these layers. Full local WASM execution, universal model accuracy and WASM resource bounds are not established by native tests.
 
 ## Official references
 

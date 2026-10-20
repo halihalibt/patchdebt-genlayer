@@ -33,5 +33,5 @@
   ],
   "deployed_source_sha256_verified": false,
   "independent_record_readbacks": null,
-  "note": "Reported transaction order preserved: public=b9d0..., gap=2e7a.... No receipt, finality, execution or vote export is supplied. Do not redeploy or repeat these requests."
+  "note": "Original Studio observations recorded before independent source and record verification."
 }
