@@ -42,3 +42,7 @@ Completion requires finality, successful Leader execution, majority agreement, e
 ## Output
 
 Records include `protocol`, `owner`, `request_id`, `input_sha256`, `input`, ordered `assessment.items` and aggregate `state`. Each finding has an index, status, verbatim quotation (where applicable) and explanation. Dossiers identify whether their origin is an offline fixture, finalized contract read or finalized transaction plus record.
+
+## Revision workflow
+
+Save an assessed baseline in **Revision desk**, choose **EDIT BASELINE GUIDE**, edit the guide and assess it under the new request ID. Save the finalized revision and select the pair to compare. **LOAD RECORDED EXAMPLE** starts with historical Pydantic records without a wallet. **VERIFY SELECTED PAIR / READ ONLY** checks both records after source verification. [Full instructions, import/export and comparison boundaries](docs/REVISIONS.md).

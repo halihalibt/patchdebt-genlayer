@@ -1,4 +1,4 @@
-# PatchDebt — Migration Coverage Desk
+# PatchDebt — Migration Coverage & Revision Desk
 
 PatchDebt turns software migration obligations into an evidence ledger. Compare a guide with an explicit change list, inspect exact quotations and explanations, and export a finalized GenLayer assessment with its transaction evidence.
 
@@ -12,6 +12,12 @@ PatchDebt turns software migration obligations into an evidence ledger. Compare 
 4. Inspect the ordered findings, quotations and explanations; export the dossier with its input hash and evidence.
 
 Existing records can be read without a wallet. Manifest-linked records also verify the transaction sender, destination, method, arguments, finality, execution and majority agreement before exporting a receipt-bound dossier. Pending submissions persist locally; rechecking only reads and never resubmits.
+
+## Track a guide revision
+
+Save a baseline assessment, assess the revised guide, then compare the same obligations side by side. Revision desk identifies resolved gaps, regressions and remaining work, highlights exact evidence and exports a portable comparison. Saved snapshots persist locally; imported files never inherit live verification claims.
+
+Try **LOAD RECORDED EXAMPLE** for two existing Pydantic records, then verify the pair through read-only Studionet calls. Use **EDIT BASELINE GUIDE** to prepare your own revision with a fresh request ID. [Workflow and comparison rules](docs/REVISIONS.md).
 
 ## Evidence model
 
@@ -54,6 +60,10 @@ Serve `dist/` with a static web server. `index.html` is the source template; the
 | `assets/` | Original PatchDebt logo and vector source |
 
 The contract copy is byte-identical to [Migration Coverage Primitive](https://github.com/halihalibt/migration-coverage-primitive); SHA-256 `f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3`. The logo is a 1024 × 1024 PNG, 189,067 bytes. The cobalt-and-gold interface supports reduced motion; see [design notes](docs/DESIGN.md).
+
+## Release 0.4
+
+Revision comparison, snapshot storage/import/export and fresh pair verification are new application capabilities relative to the 0.3 repository baseline (`c818bfc9f3c733b6b1445483aed7a764a6ce9010`). Larger workbench type, result summaries and evidence highlighting support the new workflow. [Changelog](CHANGELOG.md).
 
 ## Scope
 
