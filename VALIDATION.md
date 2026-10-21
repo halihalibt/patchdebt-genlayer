@@ -21,3 +21,11 @@ Direct Mode is native Python, not full local WASM GenVM execution. No independen
 The new automated cases validate the historical Pydantic pair as one resolved gap and its reverse as one regression. They reject changed scope, tampered hashes/quotes, inconsistent embedded records, mixed origins and mismatched contracts. Fresh-verification tests require exact finalized state and successful linked transaction verification. UI tests cover saving, recorded-example loading, selection, export, restoration and clearing. The Python harness passed 24 tests with the existing contract source hash unchanged. Previous Direct Mode and linter results above are retained historical results, not rerun as part of the frontend upgrade.
 
 The historical example is a new comparison of existing assessments, not evidence of new transactions or external adoption. No user feedback or usage counts are fabricated.
+
+## Public release verification / 0.4
+
+GitHub Actions run `39589647294` passed build, tests and Pages deployment for commit `97f4e46d4dbe5ed8dcaa5a64f5c8c2501a120c3a`. The public `release.json` returned that exact commit and run.
+
+On the public application, the recorded example produced one resolved gap, zero regressions and zero open obligations. Source SHA-256 matched the pinned contract. Both records and both manifest-linked transactions passed fresh read-only checks. The actual downloaded [comparison](evidence/REVISION_COMPARISON.json) retained both verification levels and hashes. A refresh restored the local shelf while clearing session verification. Baseline editing populated the original guide and generated a fresh request ID; importing the downloaded comparison checked its contents and did not inherit prior live verification claims. No new wallet transaction was sent. [Captured UI](evidence/revision-comparison.jpg).
+
+The browser log contained extension-origin metadata errors; no application-origin error was observed during these checks. This release's desktop UI was inspected; no new exhaustive device audit is claimed.
