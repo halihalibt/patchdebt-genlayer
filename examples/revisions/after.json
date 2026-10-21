@@ -1,0 +1,71 @@
+{
+  "origin": "FINALIZED CONTRACT READ",
+  "input": {
+    "changes": [
+      "Replace BaseModel.dict() with the V2 model_dump() method.",
+      "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+    ],
+    "from_version": "1.x",
+    "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()\nparse_obj() | model_validate()",
+    "package": "Pydantic BaseModel",
+    "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel",
+    "to_version": "2.x"
+  },
+  "assessment": {
+    "items": [
+      {
+        "index": 0,
+        "quote": "dict() | model_dump()",
+        "reason": "The guide explicitly maps the legacy dict() method to the new model_dump() method in the provided migration table.",
+        "status": "COVERED"
+      },
+      {
+        "index": 1,
+        "quote": "parse_obj() | model_validate()",
+        "reason": "The guide provides a direct replacement for parse_obj() by specifying model_validate() as the corresponding V2 method.",
+        "status": "COVERED"
+      }
+    ]
+  },
+  "state": "COVERED",
+  "evidence": {
+    "address": "0x724AcFe201463a016f59aC41516D99ab789a5c34",
+    "chain_id": 61999,
+    "record": {
+      "assessment": {
+        "items": [
+          {
+            "index": 0,
+            "quote": "dict() | model_dump()",
+            "reason": "The guide explicitly maps the legacy dict() method to the new model_dump() method in the provided migration table.",
+            "status": "COVERED"
+          },
+          {
+            "index": 1,
+            "quote": "parse_obj() | model_validate()",
+            "reason": "The guide provides a direct replacement for parse_obj() by specifying model_validate() as the corresponding V2 method.",
+            "status": "COVERED"
+          }
+        ]
+      },
+      "input": {
+        "changes": [
+          "Replace BaseModel.dict() with the V2 model_dump() method.",
+          "Replace BaseModel.parse_obj() with the V2 model_validate() method."
+        ],
+        "from_version": "1.x",
+        "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()\nparse_obj() | model_validate()",
+        "package": "Pydantic BaseModel",
+        "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel",
+        "to_version": "2.x"
+      },
+      "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7",
+      "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+      "protocol": "migration-coverage-v1",
+      "request_id": "patchdebt-public-001",
+      "state": "COVERED"
+    },
+    "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3"
+  },
+  "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7"
+}
