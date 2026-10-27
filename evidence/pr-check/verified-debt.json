@@ -1,0 +1,40 @@
+{
+  "protocol": "patchdebt-pr-check-v1",
+  "repository": "halihalibt/patchdebt-genlayer",
+  "commit": "d7576c1098c6bad184c2e130773dfba8576e23f2",
+  "input_sha256": "2f66e88c7134d6ea08b47b6199f3ab812b53192c4d5ac29923ebb34c8ac94e82",
+  "checked_at": "2026-10-27T05:05:57.738Z",
+  "status": "DEBT",
+  "exit_code": 1,
+  "provenance": "Existing assessments may be reused only for byte-equivalent canonical input. This does not prove when an assessment was requested or software compatibility.",
+  "verification": {
+    "level": "FINALIZED TRANSACTION + RECORD",
+    "checked_at": "2026-10-27T05:06:00.192Z",
+    "hash": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+    "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3"
+  },
+  "record": {
+    "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+    "request_id": "patchdebt-gap-001",
+    "address": "0x724acfe201463a016f59ac41516d99ab789a5c34"
+  },
+  "findings": [
+    {
+      "index": 0,
+      "quote": "dict() | model_dump()",
+      "reason": "Guide maps BaseModel.dict() directly to model_dump() for V1-to-V2 migration.",
+      "status": "COVERED"
+    },
+    {
+      "index": 1,
+      "quote": "",
+      "reason": "Guide only lists dict() mapping; parse_obj() replacement is outside provided scope.",
+      "status": "MISSING"
+    }
+  ],
+  "counts": {
+    "covered": 1,
+    "total": 2
+  },
+  "message": "Unresolved migration obligations require changes."
+}

@@ -1,0 +1,89 @@
+{
+  "protocol": "patchdebt-pr-check-v1",
+  "repository": "halihalibt/patchdebt-genlayer",
+  "commit": "d7576c1098c6bad184c2e130773dfba8576e23f2",
+  "input_sha256": "5da5070d1fdfe0ce0e1f9c09032d6488bf47579ffc73c0327f527f2a072dbbe7",
+  "checked_at": "2026-10-27T05:04:56.111Z",
+  "status": "PASS",
+  "exit_code": 0,
+  "provenance": "Existing assessments may be reused only for byte-equivalent canonical input. This does not prove when an assessment was requested or software compatibility.",
+  "verification": {
+    "level": "FINALIZED TRANSACTION + RECORD",
+    "checked_at": "2026-10-27T05:04:58.523Z",
+    "hash": "0xb9d04723fbfab34f971d1608cad2742207ec7691ca9f5c70a11a260db4e9a30b",
+    "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3"
+  },
+  "record": {
+    "owner": "0x22acaa233b7b985b36ef168f2de9295334065b15",
+    "request_id": "patchdebt-public-001",
+    "address": "0x724acfe201463a016f59ac41516d99ab789a5c34"
+  },
+  "findings": [
+    {
+      "index": 0,
+      "quote": "dict() | model_dump()",
+      "reason": "The guide explicitly maps the legacy dict() method to the new model_dump() method in the provided migration table.",
+      "status": "COVERED"
+    },
+    {
+      "index": 1,
+      "quote": "parse_obj() | model_validate()",
+      "reason": "The guide provides a direct replacement for parse_obj() by specifying model_validate() as the corresponding V2 method.",
+      "status": "COVERED"
+    }
+  ],
+  "counts": {
+    "covered": 2,
+    "total": 2
+  },
+  "comparison": {
+    "counts": {
+      "resolved": 1,
+      "regressed": 0,
+      "open": 0,
+      "covered": 2
+    },
+    "rows": [
+      {
+        "change": "Replace BaseModel.dict() with the V2 model_dump() method.",
+        "before": {
+          "index": 0,
+          "quote": "dict() | model_dump()",
+          "reason": "Guide maps BaseModel.dict() directly to model_dump() for V1-to-V2 migration.",
+          "status": "COVERED"
+        },
+        "after": {
+          "index": 0,
+          "quote": "dict() | model_dump()",
+          "reason": "The guide explicitly maps the legacy dict() method to the new model_dump() method in the provided migration table.",
+          "status": "COVERED"
+        },
+        "transition": "STILL COVERED"
+      },
+      {
+        "change": "Replace BaseModel.parse_obj() with the V2 model_validate() method.",
+        "before": {
+          "index": 1,
+          "quote": "",
+          "reason": "Guide only lists dict() mapping; parse_obj() replacement is outside provided scope.",
+          "status": "MISSING"
+        },
+        "after": {
+          "index": 1,
+          "quote": "parse_obj() | model_validate()",
+          "reason": "The guide provides a direct replacement for parse_obj() by specifying model_validate() as the corresponding V2 method.",
+          "status": "COVERED"
+        },
+        "transition": "RESOLVED"
+      }
+    ],
+    "guide_changed": true,
+    "baseline_verification": {
+      "level": "FINALIZED TRANSACTION + RECORD",
+      "checked_at": "2026-10-27T05:05:00.923Z",
+      "hash": "0x2e7a9f227f9178725bbc4f86ebcf634e6570fbc24830b547e72011e5a5108a58",
+      "source_sha256": "f828966372c167491fb8e2a61be0d7d639b5170b1bd784ab01fa4bce93cf4aa3"
+    }
+  },
+  "message": "All declared obligations are covered."
+}

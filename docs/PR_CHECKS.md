@@ -39,3 +39,7 @@ To integrate into another repository, check out a reviewed immutable PatchDebt r
 `examples/pr-check/before-input.json` and `after-input.json` use the historical Pydantic inputs assessed in October 2026. Their matching dossiers are in `examples/revisions/`. The incomplete guide yields DEBT; the corrected guide yields PASS. Running these through CI is new integration execution using existing assessments, not new GenLayer transactions, a new contract deployment or external adoption.
 
 Accepted code baseline: 0.4 commit `8433d137f4fd448cda8ba95b588f11d1d597c554`. All PR-check code, workflow and website input import are new in 0.5.
+
+### Live CI evidence
+
+[PR #2](https://github.com/halihalibt/patchdebt-genlayer/pull/2) contains both input revisions. [Initial DEBT run](https://github.com/halihalibt/patchdebt-genlayer/actions/runs/40453240531) → [corrected PASS run](https://github.com/halihalibt/patchdebt-genlayer/actions/runs/40453355816). Both runs produced downloadable JSON and Markdown reports. The first failure is the expected unresolved-obligation result, not a failed integration setup. Local freshly verified report copies are indexed in [Validation](../VALIDATION.md).
