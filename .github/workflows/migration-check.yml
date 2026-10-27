@@ -1,0 +1,45 @@
+name: Migration evidence gate
+on:
+  pull_request:
+    paths: ['.patchdebt/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  migration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout trusted checker
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || github.sha }}
+          path: checker
+          persist-credentials: false
+      - name: Checkout candidate data
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: candidate
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: checker/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+        working-directory: checker
+      - name: Verify current commit migration evidence
+        env:
+          CANDIDATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: >-
+          node checker/cli/check.mjs --root candidate
+          --input .patchdebt/input.json --dossier .patchdebt/dossier.json
+          --commit "$CANDIDATE_SHA" --out reports/patchdebt.json
+      - name: Preserve report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-evidence-report
+          path: reports/
+          if-no-files-found: warn

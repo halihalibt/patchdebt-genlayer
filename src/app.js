@@ -43,3 +43,16 @@ mountRevisions({getDossier:()=>dossier,getDesk:()=>desk,editBaseline:d=>{
   say('Baseline loaded for revision. Edit the guide and submit a new assessment with this fresh request ID.');
   $('guide').focus();$('desk').scrollIntoView({behavior:'smooth',block:'start'});
 }});
+
+$('pr-input').onchange=()=>action(async()=>{
+  const file=$('pr-input').files?.[0];if(!file)return;
+  try{
+    if(file.size>2000000)throw Error('Import a JSON input smaller than 2 MB.');
+    const d=validateInput(JSON.parse(await file.text()));
+    $('pkg').value=d.package;$('from').value=d.from_version;$('to').value=d.to_version;
+    $('changes').value=d.changes.join('\n');$('guide').value=d.guide;$('url').value=d.source_url;
+    $('request').value='pr-'+crypto.randomUUID();reset();
+    $('pr-notice').textContent='Input loaded with a fresh request ID. Verify source and assess in Chain desk, then export the finalized dossier for your PR.';
+  }catch(e){$('pr-notice').textContent=e.message;throw e;}
+  finally{$('pr-input').value='';}
+});

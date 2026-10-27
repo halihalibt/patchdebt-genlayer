@@ -4,6 +4,10 @@ PatchDebt turns software migration obligations into an evidence ledger. Compare 
 
 **[Open PatchDebt](https://halihalibt.github.io/patchdebt-genlayer/)** · [Usage](USAGE.md) · [Deployment](DEPLOYMENT.md) · [Evidence](evidence/README.md) · [Validation](VALIDATION.md)
 
+## Check a GitHub pull request / 0.5
+
+Bind a committed migration input to a freshly verified GenLayer transaction and record. The new CLI and GitHub Actions gate fail on uncovered obligations, changed inputs or unverifiable evidence, and publish a commit-bound report. Import PR input JSON on the website to prepare an assessment with your wallet. CI requires no wallet keys and sends no transactions. [Setup, exit codes and provenance](docs/PR_CHECKS.md).
+
 ## Review a migration
 
 1. Enter the package, old/new versions, declared changes, guide text and source URL.

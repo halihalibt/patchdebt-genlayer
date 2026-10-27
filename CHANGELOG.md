@@ -23,3 +23,11 @@
 - Comparison measures saved assessment outcomes for fixed obligations; it does not prove compatibility or authenticate source URLs.
 
 Baseline for this release: repository main `c818bfc9f3c733b6b1445483aed7a764a6ce9010` (0.3). This is a code comparison baseline, not a claim about a platform acceptance decision.
+
+## 0.5.0 — 2026-10-27
+
+- Added a CLI migration evidence gate with exact committed-input binding, pinned contract source verification, transaction/record consensus checks and nonzero exits for unresolved or unverified results.
+- Added GitHub Actions PR checks, Markdown job summaries and downloadable JSON evidence. Trusted base checker and candidate data are checked out separately; no wallet keys or write transactions are needed.
+- Added website PR input import and setup documentation, plus optional verified baseline comparisons.
+- Existing chain assessments can be reused for identical inputs; historical examples are labelled and do not imply new transactions.
+- Baseline: 0.4 commit `8433d137f4fd448cda8ba95b588f11d1d597c554`.
