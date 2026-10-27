@@ -4,7 +4,7 @@
     "Replace BaseModel.parse_obj() with the V2 model_validate() method."
   ],
   "from_version": "1.x",
-  "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()",
+  "guide": "Pydantic V1 | Pydantic V2\ndict() | model_dump()\nparse_obj() | model_validate()",
   "package": "Pydantic BaseModel",
   "source_url": "https://docs.pydantic.dev/latest/migration/#changes-to-pydanticbasemodel",
   "to_version": "2.x"
